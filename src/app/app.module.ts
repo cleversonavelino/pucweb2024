@@ -10,6 +10,8 @@ import { ProdutoComponent } from './produto/produto.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
+import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
+import { ListaProdutoComponent } from './lista-produto/lista-produto.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { LoginComponent } from './login/login.component';
     ProdutoComponent,
     UsuarioComponent,
     LayoutComponent,
-    LoginComponent
+    LoginComponent,
+    ListaUsuarioComponent,
+    ListaProdutoComponent
   ],
   imports: [
     BrowserModule,
