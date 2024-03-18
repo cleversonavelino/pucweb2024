@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Form, FormControl, Validators } from '@angular/forms';
+import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-produto',
@@ -8,12 +8,14 @@ import { Form, FormControl, Validators } from '@angular/forms';
 })
 export class ProdutoComponent {
 
-  nome: FormControl = new FormControl('', 
-    [Validators.required]);
-  preco: FormControl = new FormControl('', 
-    [Validators.required, Validators.min(5.1),
-      Validators.
-      pattern('^[0-9]+(\.[0-9]{1,2})?$')]);
+  formGroup = new FormGroup({
+    nome: new FormControl('', 
+      [Validators.required]),
+    preco: new FormControl('', 
+      [Validators.required, Validators.min(5.1),
+       Validators.
+       pattern('^[0-9]+(\.[0-9]{1,2})?$')])
+  });
 
   constructor() { }
 
@@ -23,18 +25,26 @@ export class ProdutoComponent {
   salvar(): void {
     console.log('Salvando produto');
 
-    if (this.nome.invalid) {
-      console.log('Nome inválido');
+    console.log(this.formGroup.controls.nome.invalid);
+    console.log(this.formGroup.controls.nome.touched);   
+
+    if (this.formGroup.invalid) { 
+      console.log('Formulário inválido');
       return;
     }
 
-    if (this.preco.invalid) {
-      console.log('Preço inválido');
-      return;
-    }
+    console.log(this.formGroup.controls.nome.value);
+    console.log(this.formGroup.controls.preco.value);
 
-    console.log('Nome: ' + this.nome.value);
-    console.log('Preço: ' + this.preco.value);
+    console.log('Formulário válido');
+
+   
+
+   
+
+    
+
+    
   }
 
 }
