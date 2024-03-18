@@ -8,6 +8,9 @@ import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ProdutoComponent {
 
+  showSuccessMessages = false;
+  showErrorMessages = false;
+
   formGroup = new FormGroup({
     nome: new FormControl('', 
       [Validators.required]),
@@ -30,6 +33,8 @@ export class ProdutoComponent {
 
     if (this.formGroup.invalid) { 
       console.log('Formulário inválido');
+      this.formGroup.markAllAsTouched();
+      this.showErrorMessages = true;
       return;
     }
 
@@ -37,6 +42,7 @@ export class ProdutoComponent {
     console.log(this.formGroup.controls.preco.value);
 
     console.log('Formulário válido');
+    this.showSuccessMessages = true;
 
    
 
