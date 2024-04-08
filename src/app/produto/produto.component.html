@@ -10,7 +10,9 @@
 <form [formGroup]="formGroup">
     <div class="mb-3">
         <label for="nome" class="form-label">Nome</label>
-        <input type="email" class="form-control" id="nome" placeholder="Digite seu nome" formControlName="nome">
+        <input type="email" class="form-control" id="nome" 
+        placeholder="Digite seu nome" 
+        formControlName="nome">
         <div class="invalid-feedback" [style.display]="formGroup.controls.nome.invalid 
     && formGroup.controls.nome.touched ? 'block' : 'none'">
             Digite o nome corretamente.</div>

@@ -12,6 +12,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
 import { ListaProdutoComponent } from './lista-produto/lista-produto.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ListaProdutoComponent } from './lista-produto/lista-produto.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()
