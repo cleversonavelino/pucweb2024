@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProdutoModel } from '../model/produto.model';
 
+import { AngularFireDatabase } from "angularfire2/database";
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutoService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private db: AngularFireDatabase) { }
 
   salvar(produto: ProdutoModel): Observable<ProdutoModel> { 
     return this.http.

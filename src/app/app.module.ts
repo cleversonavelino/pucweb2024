@@ -13,6 +13,8 @@ import { LoginComponent } from './login/login.component';
 import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
 import { ListaProdutoComponent } from './lista-produto/lista-produto.component';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../environment/enviroment';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [
     provideClientHydration()

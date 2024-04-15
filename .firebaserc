@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "puc2024-574a5": {
+      "hosting": {
+        "puc2024web": [
+          "puc2024-574a5"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "puc2024-574a5"
+  }
+}

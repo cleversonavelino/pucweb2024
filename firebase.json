@@ -1,0 +1,11 @@
+{
+  "hosting": [
+    {
+      "target": "puc2024web",
+      "source": ".",
+      "frameworksBackend": {
+        "region": "us-central1"
+      }
+    }
+  ]
+}
