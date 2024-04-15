@@ -35,7 +35,10 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
+    //imports para adicionar
+    //import { AngularFireModule } from '@angular/fire/compat';
     AngularFireModule.initializeApp(environment.firebase),
+    //import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     AngularFireDatabaseModule        
   ],
   providers: [

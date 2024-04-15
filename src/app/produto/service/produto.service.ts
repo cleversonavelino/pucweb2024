@@ -16,11 +16,16 @@ export class ProdutoService {
     return this.db.list('produto').push(produto);   
   }
 
+  excluir(key: any) {
+    return this.db.object('produto/'+key).remove();
+  }
+
   listar() {
     return this.db.list('produto').snapshotChanges()
     .pipe(
       map(changes => {
-        return changes.map(c => ({ key: c.payload.key, ...c.payload.val() as ProdutoModel}));
+        return changes.map(c => ({ key: c.payload.key, 
+          ...c.payload.val() as ProdutoModel}));
       })
     );
   }

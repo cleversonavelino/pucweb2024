@@ -21,4 +21,11 @@ export class ListaProdutoComponent implements OnInit {
     });
   }
 
+  excluir(key: any) {
+    console.log(key);
+    this.produtoService.excluir(key).then(retorno => {
+      console.log(retorno);
+    });
+  }
+
 }

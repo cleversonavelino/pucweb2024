@@ -7,8 +7,8 @@ export const environment = {
         projectId: "puc2024-574a5",
         storageBucket: "puc2024-574a5.appspot.com",
         messagingSenderId: "212508656016",
-        appId: "1:212508656016:web:6ab0625042344dbdbcb315",
-        measurementId: "G-23DWSV9E9C"
+        appId: "1:212508656016:web:5ee5ec8aae766955bcb315",
+        measurementId: "G-978ME9BN52"
     }
 };
   
