@@ -9,22 +9,10 @@
     </thead>
     <tbody>
         <tr *ngFor="let produto of produtos;">
-            <th scope="row">1</th>
-            <td>Air Jordan ABC</td>
+            <th scope="row">{{produto.key}}</th>
+            <td>{{produto.nome}}</td>
             <td>R$ 3000,00</td>
             <td><button class="btn btn-warning">Editar</button></td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Nike Shox</td>
-            <td>R$ 599,00</td>
-            <td><button class="btn btn-warning">Editar</button></td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Vans</td>
-            <td>R$ 599,00</td>
-            <td><button class="btn btn-warning">Editar</button></td>
-        </tr>
+        </tr>        
     </tbody>
 </table>

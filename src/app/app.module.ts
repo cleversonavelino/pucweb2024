@@ -14,6 +14,9 @@ import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
 import { ListaProdutoComponent } from './lista-produto/lista-produto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environment/enviroment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+
 
 
 @NgModule({
@@ -33,7 +36,7 @@ import { environment } from '../environment/enviroment';
     RouterModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule        
   ],
   providers: [
     provideClientHydration()

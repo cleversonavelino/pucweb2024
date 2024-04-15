@@ -44,15 +44,9 @@ export class ProdutoComponent {
     produto.nome = this.formGroup.controls.nome.value?.toString();
     //produto.preco = this.formGroup.controls.preco?.value;
 
-    this.produtoService.salvar(produto).subscribe(produto => {
-      console.log('Produto salvo com sucesso');
-      console.log(produto);
+    this.produtoService.salvar(produto).then(result => {
       this.showSuccessMessages = true;
-
-    }, error => {
-      console.error(error);
-    this.showErrorMessages = true;
-
+      console.log(result);
     });
 
     console.log('Formulário válido');
