@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProdutoModel } from '../produto/model/produto.model';
 import { ProdutoService } from '../produto/service/produto.service';
 import { map } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-produto',
@@ -12,7 +13,8 @@ export class ListaProdutoComponent implements OnInit {
 
   public produtos: any;
 
-  constructor(private produtoService: ProdutoService) { }
+  constructor(private produtoService: ProdutoService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.produtoService.listar().subscribe(produtos => {
@@ -26,6 +28,10 @@ export class ListaProdutoComponent implements OnInit {
     this.produtoService.excluir(key).then(retorno => {
       console.log(retorno);
     });
+  }
+
+  carregar(key: any) {
+    this.router.navigate(['/layout/produto/'+key]);
   }
 
 }

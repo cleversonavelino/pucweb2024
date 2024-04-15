@@ -12,7 +12,7 @@
             <th scope="row">{{produto.key}}</th>
             <td>{{produto.nome}}</td>
             <td>R$ 3000,00</td>
-            <td><button class="btn btn-warning">Editar</button> &nbsp;
+            <td><button class="btn btn-warning" (click)="carregar(produto.key)">Editar</button> &nbsp;
                 <button class="btn btn-danger" (click)="excluir(produto.key)">Excluir</button></td>
         </tr>        
     </tbody>

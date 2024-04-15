@@ -20,6 +20,10 @@ export class ProdutoService {
     return this.db.object('produto/'+key).remove();
   }
 
+  carregar(key: any) : Observable<any> {
+    return this.db.object('produto/'+key).valueChanges();
+  }
+
   listar() {
     return this.db.list('produto').snapshotChanges()
     .pipe(

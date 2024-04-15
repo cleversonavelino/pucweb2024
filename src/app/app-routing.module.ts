@@ -15,6 +15,7 @@ const routes: Routes = [
       { path: 'usuario', component: UsuarioComponent },
       { path: 'lista-usuario', component: ListaUsuarioComponent },
       { path: 'produto', component: ProdutoComponent },
+      { path: 'produto/:key', component: ProdutoComponent },
       { path: 'lista-produto', component: ListaProdutoComponent },
     ]
   },
