@@ -22,7 +22,9 @@ export class ProdutoComponent {
     preco: new FormControl('',
       [Validators.required, Validators.min(5.1),
       Validators.
-        pattern('^[0-9]+(\.[0-9]{1,2})?$')])
+        pattern('^[0-9]+(\.[0-9]{1,2})?$')]),
+    imagem: new FormControl('',
+      [Validators.required]),
   });
 
   constructor(private produtoService: ProdutoService,
@@ -33,8 +35,9 @@ export class ProdutoComponent {
     this.router.paramMap.subscribe(paramMap => {
       this.key = paramMap.get('key')?.toString();
       if (this.key) {
-        this.produtoService.carregar(paramMap.get('key')).subscribe(produto => {
+        this.produtoService.carregar(this.key).subscribe(produto => {
           this.formGroup.controls.nome.patchValue(produto.nome);
+          this.formGroup.controls.imagem.patchValue(produto.imagem);
         });
       }
     })
@@ -48,14 +51,19 @@ export class ProdutoComponent {
       return;
     }
 
+    var produto = new ProdutoModel();
+    produto.nome = this.formGroup.controls.nome.value?.toString();
+    produto.imagem = this.formGroup.controls.imagem?.value?.toString();
+    //produto.preco = this.formGroup.controls.preco?.value;
+
     if (this.key) {
       //codigo para alterar o produto
+      this.produtoService.alterar(this.key, produto).then(result => {
+        this.showSuccessMessages = true;
+        console.log(result);
+      });
     } else {
       //codigo para salvar o produto
-      var produto = new ProdutoModel();
-      produto.nome = this.formGroup.controls.nome.value?.toString();
-      //produto.preco = this.formGroup.controls.preco?.value;
-
       this.produtoService.salvar(produto).then(result => {
         this.showSuccessMessages = true;
         console.log(result);

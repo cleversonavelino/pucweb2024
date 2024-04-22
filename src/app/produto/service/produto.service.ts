@@ -4,7 +4,6 @@ import { Observable, map } from 'rxjs';
 import { ProdutoModel } from '../model/produto.model';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -24,11 +23,16 @@ export class ProdutoService {
     return this.db.object('produto/'+key).valueChanges();
   }
 
+  alterar(key: any, produto: ProdutoModel) {
+    return this.db.object('produto/'+key).update(produto);
+  }
+
   listar() {
     return this.db.list('produto').snapshotChanges()
     .pipe(
       map(changes => {
-        return changes.map(c => ({ key: c.payload.key, 
+        console.log(changes);
+        return changes.map(c => ({ key: c.key, 
           ...c.payload.val() as ProdutoModel}));
       })
     );

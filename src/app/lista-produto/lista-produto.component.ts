@@ -30,7 +30,7 @@ export class ListaProdutoComponent implements OnInit {
     });
   }
 
-  carregar(key: any) {
+  editar(key: any) {
     this.router.navigate(['/layout/produto/'+key]);
   }
 
