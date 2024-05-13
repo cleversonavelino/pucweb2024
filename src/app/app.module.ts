@@ -17,6 +17,7 @@ import { environment } from '../environment/enviroment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     LayoutComponent,
     LoginComponent,
     ListaUsuarioComponent,
-    ListaProdutoComponent
+    ListaProdutoComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
