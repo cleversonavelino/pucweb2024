@@ -3,13 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { ProdutoModel } from '../model/produto.model';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutoService {
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase,
+    private storage: AngularFireStorage) { }
 
   salvar(produto: ProdutoModel) { 
     return this.db.list('produto').push(produto);   
@@ -38,4 +40,9 @@ export class ProdutoService {
     );
   }
 
+  uploadImagem(file: any) {
+    const path = 'imagens/'+file.name;
+    const ref = this.storage.ref(path);
+    return ref.put(file);
+  }
 }

@@ -4,6 +4,7 @@ import { ProdutoModel } from './model/produto.model';
 import { ProdutoService } from './service/produto.service';
 import { Router } from 'express';
 import { ActivatedRoute } from '@angular/router';
+import { Console } from 'node:console';
 
 @Component({
   selector: 'app-produto',
@@ -71,4 +72,20 @@ export class ProdutoComponent {
     }
   }
 
+  selectFile(event: any) {
+    //captura o evento de seleção de arquivo
+    console.log(event);
+
+    //captura o arquivo selecionado
+    console.log(event.target.files[0]);
+
+    const file = event.target.files[0];
+    
+    this.produtoService.uploadImagem(file).then(result => {
+      console.log(result);
+      result.ref.getDownloadURL().then(url => {
+        this.formGroup.controls.imagem.patchValue(url);
+      })      
+    });
+  }
 }

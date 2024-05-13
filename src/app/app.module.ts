@@ -16,8 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environment/enviroment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-
-
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 @NgModule({
   declarations: [
@@ -39,7 +38,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     //import { AngularFireModule } from '@angular/fire/compat';
     AngularFireModule.initializeApp(environment.firebase),
     //import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-    AngularFireDatabaseModule        
+    AngularFireDatabaseModule,
+    AngularFireStorageModule        
   ],
   providers: [
     provideClientHydration()
