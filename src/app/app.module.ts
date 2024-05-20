@@ -18,6 +18,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
     AngularFireModule.initializeApp(environment.firebase),
     //import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     AngularFireDatabaseModule,
-    AngularFireStorageModule        
+    AngularFireStorageModule,
+    AngularFireAuthModule        
   ],
   providers: [
     provideClientHydration()
