@@ -48,4 +48,14 @@ export class LoginComponent {
       });
   }
 
+  excluirConta() {
+    this.afAuth.currentUser?.then((user) => {
+      user?.delete().then(() => {
+        window.alert('Conta excluída com sucesso');
+      }).catch((error) => {
+        window.alert(error);
+      });
+    });
+  }
+
 }
