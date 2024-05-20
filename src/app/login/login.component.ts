@@ -26,7 +26,7 @@ export class LoginComponent {
       .signInWithEmailAndPassword(this.login.value!, this.password.value!)
       .then((result) => {
         console.log(result.user);
-        //this.router.navigate(['/layout/produto']);
+        this.router.navigate(['/']);
       })
       .catch((error) => {
         console.log(error);
@@ -34,6 +34,18 @@ export class LoginComponent {
 
 
     //this.router.navigate(['/layout/produto']);
+  }
+
+
+  recuperarSenha() {
+    this.afAuth
+      .sendPasswordResetEmail(this.login.value!)
+      .then(() => {
+        window.alert('Password reset email sent, check your inbox.');
+      })
+      .catch((error) => {
+        window.alert(error);
+      });
   }
 
 }
