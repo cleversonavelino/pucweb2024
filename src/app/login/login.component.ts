@@ -18,6 +18,24 @@ export class LoginComponent {
   constructor(private router: Router,
     public afAuth: AngularFireAuth,) { }
 
+  cadastrarUsuario() {
+      console.log('Login: ' + this.login.value);
+      console.log('Senha  ' + this.password.value);
+  
+      this.afAuth
+        .createUserWithEmailAndPassword(this.login.value!, this.password.value!)
+        .then((result) => {
+          console.log(result.user);
+          this.router.navigate(['/']);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+  
+  
+      //this.router.navigate(['/layout/produto']);
+    }
+
   realizarLogin() {
     console.log('Login: ' + this.login.value);
     console.log('Senha  ' + this.password.value);
