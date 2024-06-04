@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  showErrorMessages: any;
+
   login = new FormControl('',
     [Validators.required]);
 
@@ -26,9 +28,11 @@ export class LoginComponent {
         .createUserWithEmailAndPassword(this.login.value!, this.password.value!)
         .then((result) => {
           console.log(result.user);
+          localStorage.setItem('user', JSON.stringify(result.user));
           this.router.navigate(['/']);
         })
         .catch((error) => {
+          this.showErrorMessages = true;
           console.log(error);
         });
   
